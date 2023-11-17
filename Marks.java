@@ -1,7 +1,6 @@
 import java.util.*;
 
 public class Marks {
-
     public static void main(String[] args) {
         Scanner valueIn = new Scanner(System.in);
         System.out.println("Press t to get total marks.");
