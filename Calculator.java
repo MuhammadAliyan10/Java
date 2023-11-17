@@ -22,11 +22,7 @@ class Calculator {
                 result = num1 * num2;
                 break;
             case "/":
-                if (num2 != 0) { // ! This will check the first number is non-zero or not.
-                    result = num1 / num2;
-                } else {
-                    System.out.println("Math error.");
-                }
+                result = num1 / num2;
                 break;
             default:
                 System.out.println("Please chose the correct opreator.");
