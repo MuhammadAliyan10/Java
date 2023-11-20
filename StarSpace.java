@@ -13,7 +13,7 @@ public class StarSpace {
                         System.out.print("*");
                     }
                 }
-            } else if (i == 3) {
+            } else {
                 for (int l = 1; l <= 5; l++) {
                     if (l % 2 == 0) {
                         System.out.print(" ");
