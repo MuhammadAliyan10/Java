@@ -14,13 +14,15 @@ public class Choice {
             case 'e':
                 System.out.print("Enter a number to check even/odd : ");
                 int number = value.nextInt();
-                EvenOdd evenOdd = new EvenOdd(number);
+                EvenOdd evenOdd = new EvenOdd();
+                evenOdd.set(number);
                 evenOdd.evenOddFinder();
                 break;
             case 's':
                 System.out.print("Enter a number to get square : ");
                 int numberSquare = value.nextInt();
-                Square square = new Square(numberSquare);
+                Square square = new Square();
+                square.set(numberSquare);
                 square.squareFinder();
                 break;
             case 'c':
@@ -30,7 +32,8 @@ public class Choice {
                 int num2 = value.nextInt();
                 System.out.print("Chose the opreator : ");
                 char opr = value.next().charAt(0);
-                Calculator cal = new Calculator(opr, num1, num2);
+                Calculator cal = new Calculator();
+                cal.set(opr, num1, num2);
                 cal.calOut();
                 break;
             case 'p':
@@ -40,7 +43,8 @@ public class Choice {
             case 'd':
                 System.out.print("Enter the day number : ");
                 int num = value.nextInt();
-                DayInWeek dayInWeek = new DayInWeek(num);
+                DayInWeek dayInWeek = new DayInWeek();
+                dayInWeek.set(num);
                 dayInWeek.dayInAWeek();
                 break;
             default:
@@ -55,14 +59,13 @@ public class Choice {
 class EvenOdd {
     private int number;
 
-    public EvenOdd(int number) {
-        this.number = number;
+    public void set(int num) {
+        number = num;
     }
 
     public void evenOddFinder() {
         if (number % 2 == 0) {
             System.out.println("The given number is even.");
-
         } else {
             System.out.println("The given number is odd.");
         }
@@ -73,8 +76,8 @@ class EvenOdd {
 class Square {
     private int number;
 
-    public Square(int number) {
-        this.number = number;
+    public void set(int num) {
+        number = num;
     }
 
     public void squareFinder() {
@@ -89,10 +92,10 @@ class Calculator {
     private int num1;
     private int num2;
 
-    public Calculator(char opr, int num1, int num2) {
-        this.opr = opr;
-        this.num1 = num1;
-        this.num2 = num2;
+    public void set(char op, int nu1, int nu2) {
+        opr = op;
+        num1 = nu1;
+        num2 = nu2;
     }
 
     public void calOut() {
@@ -143,8 +146,8 @@ class Pattern {
 class DayInWeek {
     private int num;
 
-    public DayInWeek(int num) {
-        this.num = num;
+    public void set(int nu) {
+        num = nu;
     }
 
     public void dayInAWeek() {

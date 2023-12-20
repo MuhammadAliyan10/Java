@@ -10,15 +10,19 @@ public class Grade {
         int rollNumber = value.nextInt();
         System.out.print("Enter your mid Marks : ");
         int midMarks = value.nextInt();
+        System.out.print("Enter your Sectional Marks : ");
+        int secMarks = value.nextInt();
         System.out.print("Enter your final Marks : ");
         int finalMarks = value.nextInt();
         System.out.print("Enter the total Marks : ");
         int totalNumber = value.nextInt();
 
-        Student student = new Student(name, rollNumber, midMarks, finalMarks, totalNumber);
+        Student student = new Student();
+        student.set(name, rollNumber, midMarks, finalMarks, totalNumber, secMarks);
         System.out.println("The name of the student is " + student.getName() + ".");
         System.out.println("The roll number of the student is BCS072230" + student.rollNumber() + ".");
         System.out.println("The mid marks of the student is " + student.midMarks() + ".");
+        System.out.println("The sectional marks of the student is " + student.sectionalNumber() + ".");
         System.out.println("The final marks of the student is " + student.finalMarks() + ".");
         System.out.println("The student get the " + student.gradeFinder() + " grade.");
 
@@ -32,13 +36,15 @@ class Student {
     private int finalMarks;
     private int rollNumber;
     private int totalNumber;
+    private int sectionalNumber;
 
-    public Student(String name, int rollNumber, int midMarks, int finalMarks, int totalNumber) {
-        this.name = name;
-        this.midMarks = midMarks;
-        this.rollNumber = rollNumber;
-        this.finalMarks = finalMarks;
-        this.totalNumber = totalNumber;
+    public void set(String n, int rN, int mM, int fM, int tM, int sM) {
+        name = n;
+        midMarks = mM;
+        rollNumber = rN;
+        finalMarks = fM;
+        totalNumber = tM;
+        sectionalNumber = sM;
     }
 
     public String getName() {
@@ -61,9 +67,13 @@ class Student {
         return finalMarks;
     }
 
+    public int sectionalNumber() {
+        return sectionalNumber;
+    }
+
     public String gradeFinder() {
         // Use double to ensure accurate division
-        double averageNumber = ((midMarks + finalMarks) / (double) totalNumber) * 100;
+        double averageNumber = ((midMarks + finalMarks + sectionalNumber) / (double) totalNumber) * 100;
         if (averageNumber >= 90) {
             return "A";
         } else if (averageNumber >= 80) {
