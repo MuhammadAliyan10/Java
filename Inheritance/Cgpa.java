@@ -38,6 +38,16 @@ class Smester1 extends GPA {
         subjectsMarks = sM;
     }
 
+    public int creditHourReturn(int creditHour[]) {
+        int totalCreditHour = 0;
+        for (int i = 0; i < creditHour.length; i++) {
+            totalCreditHour = creditHour[i] + totalCreditHour;
+
+        }
+        return totalCreditHour;
+
+    }
+
     public double gpa() {
         double totalGradePoints = 0;
         int totalCreditHours = 0;
@@ -89,12 +99,12 @@ public class Cgpa {
                 int creditHours[] = new int[10];
                 System.out.print("Enter your roll number : ");
                 int rollNumber = value.nextInt();
-                System.out.print("Enter total number of subjects : ");
+                System.out.print("Enter the total numbers of subjects : ");
                 int totalSubjects = value.nextInt();
                 for (int i = 1; i <= totalSubjects; i++) {
-                    System.out.print("Enter number of subject " + i + " : ");
+                    System.out.print("Enter the number of subject " + i + " : ");
                     subjectsMarks[i] = value.nextInt();
-                    System.out.print("Enter credit hour for subject " + i + " : ");
+                    System.out.print("Enter the credit hour for subject " + i + " : ");
                     creditHours[i] = value.nextInt();
                 }
                 Smester1 s1 = new Smester1();
@@ -106,12 +116,12 @@ public class Cgpa {
                 int creditHours2[] = new int[10];
                 System.out.print("Enter your roll number : ");
                 int rollNumber2 = value.nextInt();
-                System.out.print("Enter total number of subjects : ");
+                System.out.print("Enter total numbers of subjects : ");
                 int totalSubjects2 = value.nextInt();
                 for (int i = 1; i <= totalSubjects2; i++) {
-                    System.out.print("Enter number of subject " + i + " : ");
+                    System.out.print("Enter the number of subject " + i + " : ");
                     subjectsMarks2[i] = value.nextInt();
-                    System.out.print("Enter credit hour for subject " + i + " : ");
+                    System.out.print("Enter the credit hour for subject " + i + " : ");
                     creditHours2[i] = value.nextInt();
                 }
                 Smester2 s2 = new Smester2();
@@ -129,8 +139,7 @@ public class Cgpa {
                         double s1gp = value.nextDouble();
                         System.out.print("Enter credit hour of first smester : ");
                         int s1ch = value.nextInt();
-                        System.out.print("Enter credit hour of second smester : ");
-                        int s2ch = value.nextInt();
+                        int s2ch = s2.creditHourReturn(creditHours2);
                         double s2gp = s2.gpa();
                         s2.cgpaFinder(s1gp, s1ch, s2ch, s2gp, rollNumber2);
                         break;
@@ -144,12 +153,12 @@ public class Cgpa {
                 int creditHours3[] = new int[10];
                 System.out.print("Enter your roll number : ");
                 int rollNumber3 = value.nextInt();
-                System.out.print("Enter total number of subjects : ");
+                System.out.print("Enter the total numbers of subjects : ");
                 int totalSubjects3 = value.nextInt();
                 for (int i = 1; i <= totalSubjects3; i++) {
-                    System.out.print("Enter number of subject " + i + " : ");
+                    System.out.print("Enter the number of subject " + i + " : ");
                     subjectsMarks3[i] = value.nextInt();
-                    System.out.print("Enter credit hour for subject " + i + " : ");
+                    System.out.print("Enter the credit hour for subject " + i + " : ");
                     creditHours3[i] = value.nextInt();
                 }
                 Smester3 s3 = new Smester3();
@@ -171,8 +180,7 @@ public class Cgpa {
                         double s2gp = value.nextDouble();
                         System.out.print("Enter credit hour of second smester : ");
                         int s2ch = value.nextInt();
-                        System.out.print("Enter credit hour of third smester : ");
-                        int s3ch = value.nextInt();
+                        int s3ch = s3.creditHourReturn(creditHours3);
                         double s3gp = s3.gpa();
                         s3.cgpaFinder3(s1gp, s1ch, s2ch, s2gp, s3gp, s3ch, rollNumber3);
                         break;
