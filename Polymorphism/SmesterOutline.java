@@ -7,11 +7,7 @@ class Outline {
     protected int creditHoursPerSubject[];
 
     public void smesterOutline(int sName) {
-        totalSubject = 7;
-        creditHours = 17;
         smesterName = sName;
-        creditHoursPerSubject = new int[totalSubject];
-
     }
 }
 
