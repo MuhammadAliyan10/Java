@@ -44,7 +44,7 @@ class Smester1 extends Outline {
 
             } else if (i == 6) {
                 System.out.println(
-                        "Seventh subject is Applied Physics with credit hours " + creditHoursPerSubject[i] + ".");
+                        "Seventh subject is ICT with credit hours " + creditHoursPerSubject[i] + ".");
 
             }
 
