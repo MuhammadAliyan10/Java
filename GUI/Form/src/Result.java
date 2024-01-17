@@ -4,7 +4,7 @@ import java.awt.event.*;
 
 public class Result extends JFrame implements ActionListener {
     String day, month, year, name, department, rollNumber, gender;
-    JButton exit;
+    JButton exit, mode;
 
     Result(String d, String m, String y, String n, String rn, String dep, String g) {
         this.day = d;
@@ -19,8 +19,8 @@ public class Result extends JFrame implements ActionListener {
 
         // !GUI Basix Edit
         setTitle("Result");
-        getContentPane().setBackground(Color.BLACK);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        getContentPane().setBackground(Color.BLACK);
         // !GUI Size Edit
         setSize(1000, 600);
         setLocationRelativeTo(null);
@@ -42,7 +42,7 @@ public class Result extends JFrame implements ActionListener {
         depL.setFont(new Font(Font.SANS_SERIF, Font.LAYOUT_LEFT_TO_RIGHT, 17));
         depL.setForeground(new Color(236, 80, 227));
         add(depL);
-        JLabel rollNumL = new JLabel(name + " roll numebr is " + rollNumber + ".");
+        JLabel rollNumL = new JLabel(name + " roll number is " + rollNumber + ".");
         rollNumL.setBounds(50, 200, 800, 20);
         rollNumL.setFont(new Font(Font.SANS_SERIF, Font.LAYOUT_LEFT_TO_RIGHT, 17));
         rollNumL.setForeground(new Color(236, 80, 227));
@@ -70,6 +70,25 @@ public class Result extends JFrame implements ActionListener {
         exit.setForeground(new Color(140, 220, 255));
         exit.addActionListener(this);
         add(exit);
+
+        JToggleButton mode = new JToggleButton("Light Mode");
+        mode.setBounds(700, 20, 150, 40);
+        add(mode);
+        mode.addItemListener(new ItemListener() {
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED) {
+                    mode.setText("Dark Mode");
+                    getContentPane().setBackground(Color.WHITE);
+                    exit.setBackground(Color.WHITE);
+
+                } else {
+                    mode.setText("Light Mode");
+                    getContentPane().setBackground(Color.BLACK);
+                    exit.setBackground(Color.BLACK);
+                }
+            }
+        });
+
     }
 
     public void actionPerformed(ActionEvent ae) {

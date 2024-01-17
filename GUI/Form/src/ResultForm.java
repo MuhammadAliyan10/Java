@@ -120,17 +120,33 @@ public class ResultForm extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == result) {
-            String em = emailField.getText();
-            String ps = passwordField.getText();
-            if (em.equals(email) && ps.equals(password)) {
-                setVisible(false);
-                String selectedDay = (String) dayComboBox.getSelectedItem();
-                String selectedMonth = (String) monthComboBox.getSelectedItem();
-                String selectedYear = (String) yearComboBox.getSelectedItem();
-                new Result(selectedDay, selectedMonth, selectedYear, uname, rNum, dep, gen);
-            } else {
-                new Error();
+            String emailInput = emailField.getText().trim();
+            String passwordInput = passwordField.getText().trim();
+            if (emailInput.isEmpty() && passwordInput.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please enter email & password.", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            } else if (passwordInput.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please enter your password.", "Error",
+                        JOptionPane.ERROR_MESSAGE);
 
+            } else if (emailInput.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please enter your email.", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+
+            } else {
+                String em = emailField.getText();
+                String ps = passwordField.getText();
+                if (em.equals(email) && ps.equals(password)) {
+                    setVisible(false);
+                    String selectedDay = (String) dayComboBox.getSelectedItem();
+                    String selectedMonth = (String) monthComboBox.getSelectedItem();
+                    String selectedYear = (String) yearComboBox.getSelectedItem();
+                    new Result(selectedDay, selectedMonth, selectedYear, uname, rNum, dep, gen);
+
+                } else {
+                    new Error();
+
+                }
             }
         } else if (ae.getSource() == back) {
             setVisible(false);

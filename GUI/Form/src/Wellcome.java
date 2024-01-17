@@ -57,6 +57,8 @@ public class Wellcome extends JFrame implements ActionListener {
             setVisible(false);
             new Form();
         } else if (ae.getSource() == about) {
+            setVisible(false);
+            new About();
 
         } else if (ae.getSource() == exit) {
             setVisible(false);

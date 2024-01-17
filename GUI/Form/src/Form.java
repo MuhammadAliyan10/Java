@@ -130,7 +130,7 @@ public class Form extends JFrame implements ActionListener {
 
         // ?Sudmit Button
         submitButton = new JButton("Information");
-        submitButton.setBounds(800, 470, 100, 30);
+        submitButton.setBounds(650, 470, 100, 30);
         submitButton.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 13));
         submitButton.setBackground(Color.BLACK);
         submitButton.setBorder(BorderFactory.createLineBorder(new Color(236, 80, 227), 2));
@@ -139,7 +139,7 @@ public class Form extends JFrame implements ActionListener {
         add(submitButton);
 
         resultForm = new JButton("Check Result");
-        resultForm.setBounds(650, 470, 100, 30);
+        resultForm.setBounds(800, 470, 100, 30);
         resultForm.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 13));
         resultForm.setBackground(Color.BLACK);
         resultForm.setBorder(BorderFactory.createLineBorder(new Color(236, 80, 227), 2));
@@ -150,41 +150,75 @@ public class Form extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent ae) {
-        if (ae.getSource() == submitButton) {
+        String usernameField = usernameTextField.getText().trim();
+        String departmentField = departmentTextField.getText().trim();
+        String emailField = emailTextField.getText().trim();
+        String rollNumberField = rollNumberTextField.getText().trim();
+        char[] passwordCharsL = passwordTextField.getPassword();
+        String passwordField = new String(passwordCharsL).trim();
+        if (usernameField.isEmpty() && departmentField.isEmpty() && passwordField.isEmpty()
+                && rollNumberField.isEmpty() && emailField.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Sudmit your form to get final result.", "Error",
+                    JOptionPane.ERROR_MESSAGE);
 
-            setVisible(false);
-            String gender = "Not Specified";
-            String username = usernameTextField.getText();
-            String department = departmentTextField.getText();
-            String email = emailTextField.getText();
-            String rollNumber = rollNumberTextField.getText();
-            if (maleRadioButton.isSelected()) {
-                gender = "Male";
+        } else if (departmentField.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please enter your department.", "Error",
+                    JOptionPane.ERROR_MESSAGE);
 
-            } else if (femaleRadioButton.isSelected()) {
-                gender = "Female";
+        } else if (rollNumberField.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please enter your Roll Number.", "Error",
+                    JOptionPane.ERROR_MESSAGE);
+
+        } else if (emailField.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please enter your email.", "Error",
+                    JOptionPane.ERROR_MESSAGE);
+
+        } else if (passwordField.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please enter your password.", "Error",
+                    JOptionPane.ERROR_MESSAGE);
+
+        } else if (usernameField.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please enter your name.", "Error",
+                    JOptionPane.ERROR_MESSAGE);
+
+        } else {
+            if (ae.getSource() == submitButton) {
+
+                setVisible(false);
+                String gender = "Not Specified";
+                String username = usernameTextField.getText();
+                String department = departmentTextField.getText();
+                String email = emailTextField.getText();
+                String rollNumber = rollNumberTextField.getText();
+
+                if (maleRadioButton.isSelected()) {
+                    gender = "Male";
+
+                } else if (femaleRadioButton.isSelected()) {
+                    gender = "Female";
+
+                }
+
+                new Information(username, department, email, rollNumber, gender);
+            } else if (ae.getSource() == resultForm) {
+                String email = emailTextField.getText();
+                char[] passwordChars = passwordTextField.getPassword();
+                String password = new String(passwordChars);
+                String gender = "Not Specified";
+                String username = usernameTextField.getText();
+                String department = departmentTextField.getText();
+                String rollNumber = rollNumberTextField.getText();
+                if (maleRadioButton.isSelected()) {
+                    gender = "Male";
+
+                } else if (femaleRadioButton.isSelected()) {
+                    gender = "Female";
+
+                }
+                new ResultForm(email, password, username, rollNumber, department, gender);
+                setVisible(false);
 
             }
-
-            new Information(username, department, email, rollNumber, gender);
-        } else if (ae.getSource() == resultForm) {
-            String email = emailTextField.getText();
-            char[] passwordChars = passwordTextField.getPassword();
-            String password = new String(passwordChars);
-            String gender = "Not Specified";
-            String username = usernameTextField.getText();
-            String department = departmentTextField.getText();
-            String rollNumber = rollNumberTextField.getText();
-            if (maleRadioButton.isSelected()) {
-                gender = "Male";
-
-            } else if (femaleRadioButton.isSelected()) {
-                gender = "Female";
-
-            }
-            new ResultForm(email, password,username,rollNumber,department,gender);
-            setVisible(false);
-
         }
 
     }
