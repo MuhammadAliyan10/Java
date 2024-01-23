@@ -10,6 +10,7 @@ public class About extends JFrame implements ActionListener {
 
         // ! GUI Edit
         setTitle("About Us");
+        setResizable(false);
         getContentPane().setBackground(Color.BLACK);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

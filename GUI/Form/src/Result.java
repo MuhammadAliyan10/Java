@@ -19,6 +19,7 @@ public class Result extends JFrame implements ActionListener {
 
         // !GUI Basix Edit
         setTitle("Result");
+        setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().setBackground(Color.BLACK);
         // !GUI Size Edit

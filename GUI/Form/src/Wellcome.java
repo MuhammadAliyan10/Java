@@ -11,6 +11,7 @@ public class Wellcome extends JFrame implements ActionListener {
         setTitle("UOL");
         getContentPane().setBackground(Color.BLACK);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);
         // !GUI Size Edit
         setSize(1000, 600);
         setLocationRelativeTo(null);

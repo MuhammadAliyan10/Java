@@ -4,6 +4,7 @@ import java.awt.*;
 public class Error extends JFrame {
     Error() {
         setTitle("Error");
+        setResizable(false);
         getContentPane().setBackground(Color.BLACK);
 
         // !GUI Size Edit

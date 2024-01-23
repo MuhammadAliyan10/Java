@@ -13,6 +13,7 @@ public class Form extends JFrame implements ActionListener {
 
         // !GUI Basix Edit
         setTitle("Student Information Form");
+        setResizable(false);
         getContentPane().setBackground(Color.BLACK);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // !GUI Size Edit
