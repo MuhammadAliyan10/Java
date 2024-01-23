@@ -19,7 +19,7 @@ public class Books {
                 Statement stmt = con.createStatement()) {
 
             String strSelect = "select title, price, qty from books";
-            System.out.println("The SQL statement is: " + strSelect + "\n"); // Echo For debugging
+            System.out.println("The SQL statement is: " + strSelect + "\n"); 
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
@@ -27,9 +27,9 @@ public class Books {
             int rowCount = 0;
 
             while (rset.next()) {
-                String title = rset.getString("title"); // retrieve a 'String'-cell in the row
-                double price = rset.getDouble("price"); // retrieve a 'double'-cell in the row
-                int qty = rset.getInt("qty"); // retrieve a 'int'-cell in the row
+                String title = rset.getString("title"); 
+                double price = rset.getDouble("price"); 
+                int qty = rset.getInt("qty");
                 System.out.println(title + ", " + price + ", " + qty);
                 ++rowCount;
             }

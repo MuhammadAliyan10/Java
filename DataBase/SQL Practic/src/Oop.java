@@ -25,9 +25,9 @@ public class Oop {
             System.out.println("The records selected are:");
 
             while (rset.next()) {
-                String name = rset.getString("name"); // retrieve a 'String'-cell in the row
-                String rollNumber = rset.getString("rollNumber"); // retrieve a 'double'-cell in the row
-                String Section = rset.getString("Section"); // retrieve a 'int'-cell in the row
+                String name = rset.getString("name");
+                String rollNumber = rset.getString("rollNumber"); 
+                String Section = rset.getString("Section");
                 System.out.println(name + ", " + rollNumber + ", " + Section);
 
             }
