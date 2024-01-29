@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
+
+
+
+
+
+.search_input {
+    -fx-text-fill: #000000;
+    -fx-caret-color: #000000;
+    -fx-border-color: #5f6368;
+    -fx-background-color: #ffffff;
+    -fx-font-size: 14px;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-font-family: 'Open Sans', sans-serif;
+
+}
+
+.label {
+    -fx-font-size: 20px;
+
+    -fx-text-fill: #fff;
+    -fx-font-family: 'Open Sans', sans-serif;
+
+}
+
+.search_input:hover {
+    -fx-border-color: #303134;
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-font-size: 14px;
+    -fx-font-family: 'Open Sans', sans-serif;
+}
+
+.search_button {
+    -fx-padding: 10px 23px;
+    -fx-border-color: transparent;
+    -fx-text-fill: white;
+    -fx-background-color: #303134;
+    -fx-font-size: 13px;
+    -fx-border-width: 2px;
+    -fx-border-radius: 7px;
+    -fx-font-family: 'Open Sans', sans-serif;
+}
+
+.search_button:hover {
+    -fx-background-color: #303134;
+    -fx-cursor: hand;
+    -fx-border-width: 2px;
+    -fx-border-radius: 7px;
+    -fx-font-family: 'Open Sans', sans-serif;
+}
