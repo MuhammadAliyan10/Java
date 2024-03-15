@@ -1,0 +1,46 @@
+mport javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class BackgroundColorChangeGUI extends JFrame implements ActionListener {
+    private JLabel label;
+
+    public BackgroundColorChangeGUI() {
+        setTitle("Background Color Change");
+        setSize(300, 200);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+
+        // Create label
+        label = new JLabel("BSCS", JLabel.CENTER);
+        label.setFont(new Font("Arial", Font.PLAIN, 24));
+
+        // Create buttons
+        JButton redButton = new JButton("Red");
+        redButton.addActionListener(this);
+
+        JButton blackButton = new JButton("Black");
+        blackButton.addActionListener(this);
+
+        // Layout
+        JPanel panel = new JPanel(new GridLayout(3, 1));
+        panel.add(label);
+        panel.add(redButton);
+        panel.add(blackButton);
+
+        add(panel);
+        setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        if (e.getActionCommand().equals("Red")) {
+            getContentPane().setBackground(Color.RED);
+        } else if (e.getActionCommand().equals("Black")) {
+            getContentPane().setBackground(Color.BLACK);
+        }
+    }
+
+    public static void main(String[] args) {
+        new BackgroundColorChangeGUI();
+    }
+}
